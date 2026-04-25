@@ -34,7 +34,7 @@
     overflow: hidden;
   }
 
-  /* ── Sidebar ── */
+  /* Sidebar */
   .sidebar {
     width: 320px;
     min-width: 320px;
@@ -252,7 +252,7 @@
     border-top: 1px solid var(--border);
   }
 
-  /* ── Main chat ── */
+  /* Main chat */
   .main {
     flex: 1;
     display: flex;
@@ -544,13 +544,13 @@
 const API = 'https://docquery-ai-fpnt.onrender.com';
 let chunksLoaded = 0;
 
-// ── Auto-resize textarea ──
+// Auto-resize textarea
 function autoResize(el) {
   el.style.height = 'auto';
   el.style.height = Math.min(el.scrollHeight, 120) + 'px';
 }
 
-// ── Health check ──
+// Health check
 async function checkHealth() {
   try {
     const r = await fetch(`${API}/health`);
@@ -565,7 +565,7 @@ async function checkHealth() {
   }
 }
 
-// ── Toast ──
+// Toast
 function showToast(msg, type = 'success') {
   const t = document.getElementById('toast');
   t.textContent = msg;
@@ -574,7 +574,7 @@ function showToast(msg, type = 'success') {
   setTimeout(() => t.style.display = 'none', 3500);
 }
 
-// ── Ingest ──
+// Ingest
 async function ingest() {
   const fileInput = document.getElementById('fileInput');
   const pasteText = document.getElementById('pasteText').value.trim();
@@ -621,7 +621,7 @@ async function ingest() {
   btn.textContent = '⚡ Ingest Document';
 }
 
-// ── Ask ──
+// Ask
 async function ask() {
   const q = document.getElementById('question').value.trim();
   if (!q) return;
@@ -666,7 +666,7 @@ async function ask() {
   document.getElementById('sendBtn').disabled = false;
 }
 
-// ── Reset ──
+// Reset
 async function resetAll() {
   if (!confirm('Clear all ingested documents and conversation history?')) return;
   try {
@@ -686,7 +686,7 @@ async function resetAll() {
   }
 }
 
-// ── Message helpers ──
+// Message helpers
 function now() {
   return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
@@ -742,7 +742,7 @@ function escHtml(t) {
   return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br/>');
 }
 
-// ── Keyboard ──
+// Keyboard
 function handleKey(e) {
   if (e.key === 'Enter' && !e.shiftKey) {
     e.preventDefault();
@@ -750,7 +750,7 @@ function handleKey(e) {
   }
 }
 
-// ── Drag & drop ──
+// rag & drop
 const uploadArea = document.getElementById('uploadArea');
 uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('dragover'); });
 uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
