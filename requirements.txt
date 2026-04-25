@@ -6,3 +6,4 @@ groq
 faiss-cpu==1.8.0
 numpy==1.26.4
 pdfplumber==0.11.1
+rank-bm25
